@@ -18,13 +18,9 @@ export const TodoList = () => {
 
   useEffect(() => {
     // Load todos (if any) from localStorage
-
     //const todosFromLocalstorage = localStorage.getItem("todos");
-
     // parse through the stored to-do's and set them in state
-
-    
-   // console.log(todosFromLocalstorage);
+    // console.log(todosFromLocalstorage);
     //setTodos((oldArray) => oldArray.concat(todosFromLocalstorage));
   }, []);
 
@@ -71,7 +67,12 @@ export const TodoList = () => {
       <ul id="todo-list">
         {/* Use map to return the todos here :) */}
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo}</li>;
+          return (
+            <li key={todo.id}>
+              {todo}
+              <button onClick={() => handleDeleteTodo()}>delete</button>
+            </li>
+          );
         })}
       </ul>
       <button id="get-friends-btn" onClick={handleFetchFriends}>
